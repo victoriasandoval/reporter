@@ -1,18 +1,29 @@
 import datetime
 import json
 import tempfile
-from header import create_header
+from reporter.header import create_header
 
 
-def test_header_str():
-    tmp_json = tempfile.mktemp(suffix='json')
-    authors = {'auth0': {'firstname': 'tuytu',
-                         'lastname': 'tuytu'},
-               'auth2': {'firstname': 'tuytu'}}
+def test_create_header():
 
-    with open(tmp_json, 'w') as fh:
-        json.dump(authors, fh)
+    authors = {
+        'auth1': {
+            'name': 'John John',
+            'email': 'john@example.com'
+        },
+        'auth2': {
+            'name': 'Paul Paul',
+        }
+    }
 
-    date = datetime.date(2018, 11, 25)
-    result = create_header(tmp_json, date=date, place='Paris')
-    print(result)
+    json_file = tempfile.mktemp(suffix='.json')
+    with open(json_file, 'w') as fp:
+        json.dump(authors, fp)
+
+    place = 'Marseille'
+    res = create_header(json_file, place)
+    assert res.startswith('### Marseille')
+    assert '- John John' in res
+
+    res = create_header(json_file, 'Paris')
+    assert res.startswith('### Paris')
