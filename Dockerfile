@@ -22,3 +22,4 @@ EXPOSE 80
 #CMD ["python", "./app.py"]
 #CMD ["py.test", "-s", "./tests"]
 CMD ["/bin/bash"]
+#CMD ["FLASK_APP=reporter/api.py", "flask", "run", "--host=0.0.0.0"]
