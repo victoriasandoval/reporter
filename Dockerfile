@@ -18,7 +18,9 @@ RUN pip install -r requirements_pip.txt
 
 VOLUME ["/usr/reporter"]
 EXPOSE 80
+EXPOSE 443
 
 #CMD ["python", "./app.py"]
 #CMD ["py.test", "-s", "./tests"]
 CMD ["/bin/bash"]
+#CMD ["FLASK_APP=reporter/api.py", "flask", "run", "--host=0.0.0.0"]
