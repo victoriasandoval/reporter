@@ -55,6 +55,6 @@ def hello():
 if __name__ == "__main__":
     app.run(
         ssl_context='adhoc',
-        static_folder='data',
-        template_folder='data'
+        static_folder=data_path,
+        template_folder=data_path
     )
