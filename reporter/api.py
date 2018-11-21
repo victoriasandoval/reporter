@@ -20,3 +20,6 @@ poem._fetch_poem()
 def hello():
     return header.create_header(app.config['AUTHOR_PATH'], 'Paris XII')
 
+
+if __name__ == "__main__":
+    app.run(ssl_context='adhoc')

@@ -1,5 +1,6 @@
 ### A demo python package
 
+[![Build Status](https://travis-ci.org/glyg/reporter.svg?branch=master)](https://travis-ci.org/glyg/reporter) [![Coverage Status](https://coveralls.io/repos/github/glyg/reporter/badge.svg?branch=master)](https://coveralls.io/github/glyg/reporter?branch=master)
 ## Installing with Pipenv
 
 * Install from the Pipfile `pipenv install`
