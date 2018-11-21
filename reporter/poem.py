@@ -2,7 +2,7 @@
 
 # imports
 from requests_html import HTMLSession
-
+from random import randint
 
 class Poem:
 
@@ -19,3 +19,14 @@ class Poem:
     def _fetch_poem(self):
         r = self.session.get(self.url, proxies=self.proxy)
         self.elements = [p.text for p in r.html.find(self.selector)]
+
+
+    def rand_strophe(self):
+        self._fetch_poem()
+        poems=self.elements
+
+        allpoems='\n'.join(poems)
+
+        strophe=allpoems.split('\n\n')
+
+        return strophe[randint(0,len(strophe))]
