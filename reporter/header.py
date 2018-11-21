@@ -2,6 +2,7 @@
 Header creation utility
 
 """
+import numpy as np
 import json
 import sys
 import tempfile
