@@ -13,10 +13,10 @@ def add_copyright(func):
     @wraps(func)
     def decorated(*args, **kwargs):
         res = func(*args, **kwargs)
-        res += '\n © humancoders 2018\n'
+        res += '\n © humancoders 2018 - V2\n'
         return res
     return decorated
-
+ 
 
 @add_copyright
 def create_header(authors_json, place='Paris'):
@@ -61,10 +61,10 @@ def create_header(authors_json, place='Paris'):
     with open(authors_json, 'r') as fp:
         authors = json.load(fp)
     ligne1 = f"### {place}, le {date.today().strftime('%d %B %Y')}"
-    auteurs = """Auteurs:\n\t- """
+    auteurs = """Auteurs:\n * """
     names = (val.get('name', '') for val in authors.values())
 
-    auteurs = auteurs + '\n\t- '.join(names)
+    auteurs = auteurs + '\n * '.join(names)
     res = '\n'.join([ligne1, auteurs])
     return res
 
