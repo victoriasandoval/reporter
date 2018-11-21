@@ -61,7 +61,7 @@ def create_header(authors_json, place='Paris'):
     with open(authors_json, 'r') as fp:
         authors = json.load(fp)
     ligne1 = f"### {place}, le {date.today().strftime('%d %B %Y')}"
-    auteurs = """Auteurs:\n * """
+    auteurs = """Auteurs:\n\n * """
     names = (val.get('name', '') for val in authors.values())
 
     auteurs = auteurs + '\n * '.join(names)
