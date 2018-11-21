@@ -1,5 +1,6 @@
 *.py[cod]
-
+.spyproject
+.DS_Store
 # C extensions
 *.so
 *.lo
