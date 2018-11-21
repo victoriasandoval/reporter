@@ -1,5 +1,6 @@
 *.py[cod]
-
+.spyproject
+.DS_Store
 # C extensions
 *.so
 *.lo
@@ -75,6 +76,9 @@ dist/
 *.aux
 *.log
 *.out
+
+## PyCharm
+.idea
 
 ## Blender packups
 *.blend[1-9]

@@ -1,0 +1,11 @@
+ipython
+setuptools
+pytest
+flask
+requests-html
+numpy
+scipy
+matplotlib
+pandas
+xlrd
+pyopenssl
