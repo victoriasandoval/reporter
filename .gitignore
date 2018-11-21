@@ -76,6 +76,9 @@ dist/
 *.log
 *.out
 
+## PyCharm
+.idea
+
 ## Blender packups
 *.blend[1-9]
 
