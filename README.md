@@ -1,5 +1,7 @@
 ### A demo python package
 
+[![Build Status](https://travis-ci.org/glyg/reporter.svg?branch=master)](https://travis-ci.org/glyg/reporter)
+
 ## Installing with Pipenv
 
 * Install from the Pipfile `pipenv install`
