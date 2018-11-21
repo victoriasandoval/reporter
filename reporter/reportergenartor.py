@@ -16,6 +16,7 @@ class ReporterGenerator:
     path_file_author = ""
     path_file_excell = ""
     path_file_picture = ""
+    path_file_markdown = ""
     markdown = ""
     header = ""
     image_path = ""
@@ -31,6 +32,7 @@ class ReporterGenerator:
         # create all usefull path 
         self.path_file_author = (path1/'authors.json')
         self.path_file_picture = (path1/'graph.png')
+        self.path_file_markdown = (path1/'markdown.txt')
         # check validity 
         if not self.path_file_author.is_file:
             print('Error author file')
@@ -67,6 +69,9 @@ class ReporterGenerator:
         self.markdown += addImg
         print("Done !")
         print(self.markdown)
+        new_file = open(str(self.path_file_markdown),'w')
+        new_file.write(self.markdown)
+        new_file.close()
 
 '''
 init ( path fichiuer dir fichier json / excell )=> constructeur passer dossier 
