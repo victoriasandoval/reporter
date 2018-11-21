@@ -1,3 +1,4 @@
+ipython
 setuptools
 pytest
 flask
