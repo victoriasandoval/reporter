@@ -11,3 +11,6 @@ install:
 script:
   - pytest
   - flake8 reporter/
+
+after_success:
+  - codecov
