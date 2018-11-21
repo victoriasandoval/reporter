@@ -6,11 +6,8 @@ python:
 
 install:
   - pip install -r requirements_pip.txt
-  - pip install flake8 coverage codecov
+  - pip install flake8 coverage
 
 script:
-  - pytest
+  - coverage run -m py.test ./tests && coverage report && coverage html -d build/coverage
   - flake8 reporter/ --exit-zero
-
-after_success:
-  - codecov
