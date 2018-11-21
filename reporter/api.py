@@ -40,6 +40,12 @@ def hello():
     gen.addplot()
     gen.build_result()
 
+    # strophe
+
+    strophe = poem.rand_strophe()
+    with open(markdown_file, 'a') as file:
+        file.write(strophe)
+
     # Generate HTML File
     html_cmd = f"""pandoc {markdown_file} -o {html_file}"""
     subprocess.run(html_cmd.split(' '))
