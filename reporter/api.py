@@ -44,7 +44,7 @@ def hello():
 
     strophe = poem.rand_strophe()
     with open(markdown_file, 'a') as file:
-        file.write(strophe)
+        file.write('\n\n' + strophe)
 
     # Generate HTML File
     html_cmd = f"""pandoc {markdown_file} -o {html_file}"""
@@ -61,6 +61,6 @@ def hello():
 if __name__ == "__main__":
     app.run(
         ssl_context='adhoc',
-        static_folder=data_path,
-        template_folder=data_path
+        #static_folder=data_path,
+        #template_folder=data_path
     )
