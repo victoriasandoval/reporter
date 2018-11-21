@@ -1,0 +1,8 @@
+language: python
+
+install:
+  - pip install -r requirements_pip.txt
+  - pip install flake8
+
+test:
+  - pytest
