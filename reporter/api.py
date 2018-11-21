@@ -11,7 +11,14 @@ app = Flask(__name__)
 app.config.from_pyfile('../api.cfg')
 
 # init Poem
-poem = Poem(url=app.config['POEM_URL'], selector=app.config['POEM_SELECTOR'])
+poem = Poem(
+    url=app.config['POEM_URL'],
+    selector=app.config['POEM_SELECTOR'],
+    proxies={
+        'http': app.config['HTTP_PROXY'],
+        'https': app.config['HTTPS_PROXY']
+    }
+)
 poem._fetch_poem()
 
 
