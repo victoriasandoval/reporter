@@ -10,7 +10,7 @@ install:
 
 script:
   - pytest
-  - flake8 reporter/
+  - flake8 reporter/ --exit-zero
 
 after_success:
   - codecov
