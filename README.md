@@ -23,6 +23,6 @@
 ## testing
 
 * RUN the tests:
-    - with pytest: `py.test`
-    - with pytest and coverage reporting (stdout + html): `coverage run -m py.test && coverage report && coverage html -d build/coverage`
+    - with pytest: `py.test ./tests`
+    - with pytest and coverage reporting (stdout + html): `coverage run -m py.test ./tests && coverage report && coverage html -d build/coverage`
     - reports will be in `build/coverage`

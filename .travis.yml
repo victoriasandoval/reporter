@@ -9,5 +9,5 @@ install:
   - pip install flake8 coverage
 
 script:
-  - coverage run -m py.test && coverage report && coverage html -d build/coverage
+  - coverage run -m py.test ./tests && coverage report && coverage html -d build/coverage
   - flake8 reporter/ --exit-zero
