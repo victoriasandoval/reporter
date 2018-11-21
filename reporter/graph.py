@@ -9,14 +9,19 @@ Created on Wed Nov 21 11:47:12 2018
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import os
+from pathlib import Path
+
+module_dir = os.path.abspath(os.path.dirname(__file__))
+
+print(module_dir)
+
+def graph(file=Path(module_dir)/'../data/series-1800-2015_simplified.xlsx'
+          ,output_file=Path(module_dir)/'../data/graph.png'):
 
 
-
-
-def graph(file='/Users/ericpeter/Documents/reporter/data/series-1800-2015_simplified.xlsx'
-          ,output_file='/Users/ericpeter/Documents/reporter/data/graph.png'):
-
-
+    
+    
     data=pd.read_excel(file)
     datat = data.T
     serie = datat.loc['Série']
