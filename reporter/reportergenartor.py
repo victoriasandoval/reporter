@@ -13,6 +13,9 @@ import matplotlib
 matplotlib.use('Agg')
 
 class ReporterGenerator:
+    '''
+    The main objective is to build a file markdown.md in the /data directory 
+    '''
     path_file_author = ""
     path_file_excell = ""
     path_file_picture = ""
@@ -23,7 +26,6 @@ class ReporterGenerator:
 
     def __init__(self, pathvar):
         path1 = Path(pathvar)
-        #module_dir = os.path.abspath(os.path.dirname(__file__))
         if not path1.is_dir:
             print('Error path')
         else:
@@ -32,7 +34,7 @@ class ReporterGenerator:
         # create all usefull path 
         self.path_file_author = (path1/'authors.json')
         self.path_file_picture = (path1/'graph.png')
-        self.path_file_markdown = (path1/'markdown.txt')
+        self.path_file_markdown = (path1/'markdown.md')
         # check validity 
         if not self.path_file_author.is_file:
             print('Error author file')
