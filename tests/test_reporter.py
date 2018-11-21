@@ -19,4 +19,4 @@ def test_reporter():
     gene.addheader()
     gene.addplot()
     gene.build_result()
-    #assert (module_dir/'../data/markdown.md').is_file
+    assert (module_dir/'../data/markdown.md').is_file
