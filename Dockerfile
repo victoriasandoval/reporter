@@ -18,6 +18,7 @@ RUN pip install -r requirements_pip.txt
 
 VOLUME ["/usr/reporter"]
 EXPOSE 80
+EXPOSE 443
 
 #CMD ["python", "./app.py"]
 #CMD ["py.test", "-s", "./tests"]
