@@ -14,8 +14,7 @@ def test_graph():
     
     fichier=tempfile.mktemp("graph.png")
     
-    graph(file='/Users/ericpeter/Documents/reporter/data/series-1800-2015_simplified.xlsx'
-          ,output_file=fichier)
+    graph(output_file=fichier)
     
     
     assert os.path.isfile(fichier)
