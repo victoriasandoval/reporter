@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/glyg/reporter.svg?branch=master)](https://travis-ci.org/glyg/reporter)
 
  [![Coveralls Status](https://coveralls.io/repos/github/glyg/reporter/badge.svg?branch=master)](https://coveralls.io/github/glyg/reporter?branch=master)
- [![Coverage Status](https://img.shields.io/badge)]
 
 ## Installing with Pipenv
 
@@ -20,6 +19,7 @@
     - `docker run -it -v $(pwd):/usr/reporter -p 443:5000 --rm reporter`
     - inside the container: `FLASK_APP=reporter/api.py flask run --host=0.0.0.0`
 
+* Add debug on flask `FLASK_APP=reporter/api.py FLASK_ENV=development flask run --host=0.0.0.0`
 
 * Or in daemon mode (HTTP): `docker run -d -v $(pwd):/usr/reporter -p 80:5000 reporter`
 * Or in daemon mode (HTTPS): `docker run -d -v $(pwd):/usr/reporter -p 443:5000 reporter`
