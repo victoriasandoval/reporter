@@ -4,7 +4,7 @@
 from requests_html import HTMLSession
 
 
-class Poem():
+class Poem:
 
     def __init__(self,
             url="https://fr.wikisource.org/wiki/Po%C3%A9sies_(Rimbaud)/%C3%A9d._Vanier,_1895/Le_Bateau_ivre",
