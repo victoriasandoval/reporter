@@ -7,7 +7,6 @@ import sys
 from datetime import date
 from functools import wraps
 
-
 def add_copyright(func):
     @wraps(func)
     def decorated(*args, **kwargs):
@@ -16,11 +15,9 @@ def add_copyright(func):
         return res
     return decorated
 
-@add_copyright
-def create_header(authors_json,
-                  place='Paris',
-                  **print_kwargs):
 
+@add_copyright
+def create_header(authors_json, place='Paris'):
     """returns the header string
 
     Parameters
@@ -58,17 +55,13 @@ def create_header(authors_json,
 
 
     """
+
     with open(authors_json, 'r') as fp:
         authors = json.load(fp)
-
     ligne1 = f"### {place}, le {date.today().strftime('%d %B %Y')}"
     auteurs = """Auteurs:\n\t- """
     names = (val.get('name', '') for val in authors.values())
+
     auteurs = auteurs + '\n\t- '.join(names)
     res = '\n'.join([ligne1, auteurs])
     return res
-
-if __name__ == '__main__':
-
-    json_path = sys.argv[1]
-    print(create_header(json_path))
