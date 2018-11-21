@@ -9,6 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -q -y \
     vim \
     curl \
     libhdf5-dev \
+    pandoc \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/reporter
