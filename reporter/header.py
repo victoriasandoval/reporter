@@ -4,6 +4,7 @@ Header creation utility
 """
 import json
 import sys
+import tempfile
 from datetime import date
 from functools import wraps
 
@@ -65,3 +66,22 @@ def create_header(authors_json, place='Paris'):
     auteurs = auteurs + '\n\t- '.join(names)
     res = '\n'.join([ligne1, auteurs])
     return res
+
+if __name__ == "__main__":
+    authors = {  
+        'auth1': {
+            'name': 'John John',
+            'email':'john@example.be'
+        },
+        'auth2' : {
+            'name' : 'Paul paul',
+        }       
+    }
+    json_file = tempfile.mktemp(suffix='.json')
+    with open(json_file, 'w') as fp:
+        json.dump(authors, fp)
+
+    place = 'Marseille'
+    res = create_header(json_file, place)
+    print(res)
+
