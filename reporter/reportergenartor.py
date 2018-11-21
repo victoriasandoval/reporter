@@ -2,16 +2,20 @@ import json
 import sys
 import glob
 import os
+import tempfile
 from datetime import date
 from functools import wraps
 from pathlib import Path
 from reporter.header import create_header
+from reporter.graph import graph
+import matplotlib
 
+matplotlib.use('Agg')
 
 class ReporterGenerator:
     path_file_author = ""
     path_file_excell = ""
-    path_file_plot = ""
+    path_file_picture = ""
     markdown = ""
     header = ""
     image_path = ""
@@ -25,7 +29,8 @@ class ReporterGenerator:
             mypath = f'Path is {path1}'
             print(mypath)
         # create all usefull path 
-        self.path_file_author = path1/'authors.json'
+        self.path_file_author = (path1/'authors.json')
+        self.path_file_picture = (path1/'graph.png')
         # check validity 
         if not self.path_file_author.is_file:
             print('Error author file')
@@ -36,7 +41,7 @@ class ReporterGenerator:
         # search excell file in directory ( get the first one )  
         listfile = list(Path(pathvar).glob('*.xlsx'))  
         mypath = f'Excell file is  : {listfile[0]}'      
-        self.path_file_excell = listfile[0]
+        self.path_file_excell = (listfile[0])
         print(self.path_file_excell)
 
     def methode0(self):   # c'est une méthode de la classe avec lme slef
@@ -47,18 +52,21 @@ class ReporterGenerator:
 
     def addheader(self):
         place = 'Marseille'
-        self.header = create_header(self.path_file_author, place) 
+        print(str(self.path_file_author))
+        self.header = create_header(str(self.path_file_author), place) 
 
     def addplot(self):
         # call the plot api ( pass the path to excell - retrieve picture file path )
         # self.path_file_plot = call( path_file_excell )
-        self.path_file_plot = ""
+        fichier=tempfile.mktemp("graph2.png")
+        graph(file=str(self.path_file_excell),output_file=str(self.path_file_picture))
 
     def build_result(self):
         self.markdown  = self.header    
-        addImg = f'<img src="{self.image_path}">'   
+        addImg = f'<img src="{self.path_file_picture}">'   
         self.markdown += addImg
         print("Done !")
+        print(self.markdown)
 
 '''
 init ( path fichiuer dir fichier json / excell )=> constructeur passer dossier 
@@ -75,8 +83,12 @@ gene.poeme()
 gene.buildResult() 
 
 '''
-gene = ReporterGenerator('/Users/eric/report')
-gene.addheader()
-gene.addplot()
-gene.build_result()
 
+if __name__ == "__main__":
+    module_dir = os.path.abspath(os.path.dirname(__file__))
+    module_dir = Path(module_dir)/'../data'
+    print(str(module_dir))
+    gene = ReporterGenerator(module_dir)
+    gene.addheader()
+    gene.addplot()
+    gene.build_result()

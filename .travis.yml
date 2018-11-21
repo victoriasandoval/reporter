@@ -1,0 +1,16 @@
+language: python
+
+python:
+  - "3.6"
+  - "3.7-dev"
+
+install:
+  - pip install -r requirements_pip.txt
+  - pip install flake8 coverage codecov
+
+script:
+  - pytest
+  - flake8 reporter/
+
+after_success:
+  - codecov
