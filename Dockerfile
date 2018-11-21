@@ -1,5 +1,5 @@
 # docker build -t reporter .
-# docker run -it -v $(pwd):/usr/reporter --rm reporter
+# docker run -it -v $(pwd):/usr/reporter -p 5000:80 --rm reporter
 
 FROM python:3.7
 
