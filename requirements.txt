@@ -1,8 +1,0 @@
-numpy
-scipy
-matplotlib
-pandas
-pytables
-jupyter
-notebook
-pyopenssl
