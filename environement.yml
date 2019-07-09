@@ -8,6 +8,4 @@ dependencies:
 - scipy
 - matplotlib
 - pandas
-- pytables
 - xlrd
-- notebook
